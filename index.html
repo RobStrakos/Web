@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robert Strakoš — ICT Služby</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --white: #ffffff;
+      --ink: #1a1a2e;
+      --muted: #7a7a8c;
+      --border: #e4e0d8;
+      --accent: #2563eb;
+      --accent-light: #eff4ff;
+      --green: #059669;
+      --green-light: #ecfdf5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── STICKY TOPNAV ── */
+    .topnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247,245,240,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+    }
+
+    .topnav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topnav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .topnav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .topnav-links a {
+      display: block;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .topnav-links a:hover,
+    .topnav-links a.active {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    /* hamburger mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px; left: 0; right: 0;
+      background: rgba(247,245,240,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      padding: 12px 24px 20px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
+
+    @media (max-width: 560px) {
+      .topnav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 116px 32px 80px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      animation: up 0.5s ease 0.05s forwards;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 500;
+      background: var(--green-light);
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    .nav-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 2s ease infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* ── HERO ── */
+    .hero { margin-bottom: 72px; }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: up 0.5s ease 0.15s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(40px, 8vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: up 0.5s ease 0.25s forwards;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.75;
+      opacity: 0;
+      animation: up 0.5s ease 0.35s forwards;
+    }
+
+    .hero-sub strong { color: var(--ink); font-weight: 500; }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      opacity: 0;
+      animation: up 0.5s ease 0.45s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+    .btn-outline { background: var(--white); color: var(--ink); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 64px; opacity: 0; animation: up 0.5s ease 0.5s forwards; }
+    section:nth-of-type(2) { animation-delay: 0.6s; }
+    section:nth-of-type(3) { animation-delay: 0.7s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* ── CARDS ── */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(37,99,235,0.08);
+      transform: translateY(-2px);
+    }
+
+    .card-icon { font-size: 26px; margin-bottom: 14px; display: block; }
+    .card-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ── ABOUT ── */
+    .about-strip {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 32px 36px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text { flex: 1; }
+
+    .about-text h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .about-text p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    .about-stats { display: flex; gap: 32px; flex-shrink: 0; }
+
+    .stat { text-align: center; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* ── CONTACT ── */
+    .contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 64px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      opacity: 0;
+      animation: up 0.5s ease 0.9s forwards;
+    }
+
+    @keyframes up {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 96px 20px 60px; }
+      .about-strip { flex-direction: column; gap: 24px; }
+      .about-stats { justify-content: space-around; width: 100%; }
+      footer { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAV -->
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a href="#uvod" class="topnav-logo">Mgr. Robert Strakoš</a>
+      <ul class="topnav-links">
+        <li><a href="#uvod" class="active">Úvod</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#omne">O mně</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#uvod">Úvod</a>
+    <a href="#sluzby">Služby</a>
+    <a href="#omne">O mně</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <div class="page">
+
+    <div id="uvod">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:80px;opacity:0;animation:up 0.5s ease 0.05s forwards;">
+        <span style="font-size:11px;color:var(--muted);font-weight:500;letter-spacing:0.05em;">Ostrava · Česká republika</span>
+        <span class="nav-badge">Dostupný pro spolupráci</span>
+      </div>
+
+    <div class="hero">
+      <p class="hero-eyebrow">IT specialista &amp; ICT technik</p>
+      <h1>Technologie,<br>které <em>fungují.</em></h1>
+      <p class="hero-sub">
+        Pomáhám firmám a jednotlivcům se <strong>správou IT infrastruktury</strong>,
+        zaváděním <strong>AI nástrojů</strong> a vzděláváním
+        v oblasti moderních technologií. Vystudovaný učitel ICT s praxí IT specialisty.
+      </p>
+      <div class="hero-cta">
+        <a href="/cdn-cgi/l/email-protection#8bf9e4e9eef9ffcbeef3eae6fbe7eea5e8e4e6" class="btn btn-primary">✉ Napsat zprávu</a>
+        <a href="#sluzby" class="btn btn-outline">Zobrazit služby →</a>
+      </div>
+    </div>
+
+    </div><!-- /uvod -->
+
+    <section id="sluzby">
+      <p class="section-label">Co nabízím</p>
+      <div class="services">
+        <div class="card">
+          <span class="card-icon">🖥️</span>
+          <p class="card-title">Správa HW &amp; SW</p>
+          <p class="card-desc">Instalace, konfigurace, servis a údržba počítačů, serverů a periferií.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🌐</span>
+          <p class="card-title">Síťová infrastruktura</p>
+          <p class="card-desc">Návrh a správa sítí, WiFi, zabezpečení a vzdálený přístup.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🤖</span>
+          <p class="card-title">AI &amp; automatizace</p>
+          <p class="card-desc">Zavádění AI nástrojů do pracovních procesů. ChatGPT, Copilot a další.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📚</span>
+          <p class="card-title">Vzdělávání &amp; školení</p>
+          <p class="card-desc">Školení pro firmy i jednotlivce — od základů IT po moderní technologie.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">☁️</span>
+          <p class="card-title">Cloud &amp; zálohování</p>
+          <p class="card-desc">Migrace do cloudu, správa Microsoft 365, Google Workspace, zálohy dat.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔒</span>
+          <p class="card-title">Kybernetická bezpečnost</p>
+          <p class="card-desc">Audit zabezpečení, ochrana před hrozbami, základní GDPR poradenství.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💡</span>
+          <p class="card-title">Digitální finance</p>
+          <p class="card-desc">Vzdělávání v oblasti digitálních aktiv, blockchain technologií a bezpečného nakládání s hodnotou v digitálním světě.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="omne">
+      <p class="section-label">O mně</p>
+      <div class="about-strip">
+        <div class="about-text">
+          <h2>Praktické řešení<br>bez zbytečné složitosti.</h2>
+          <p>
+            Mgr. vystudovaný učitel ICT s 8 lety praxe jako IT specialista a technik.
+            Mám zkušenosti s nasazením technologií v malých i středních firmách.
+            Problémy vysvětluji srozumitelně a navrhuji řešení, která dávají smysl — technicky i ekonomicky.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <p class="stat-num">8+</p>
+            <p class="stat-label">let praxe</p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">Mgr.</p>
+            <p class="stat-label">učitel ICT</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <p class="section-label">Kontakt</p>
+      <div class="contact-row">
+        <a href="/cdn-cgi/l/email-protection#13617c7176616753766b727e637f763d707c7e" class="contact-link">✉ <span class="__cf_email__" data-cfemail="7604191413040236130e171b061a135815191b">[email&#160;protected]</span></a>
+        <a href="https://www.linkedin.com/in/robertstrakoš/" target="_blank" class="contact-link">◈ LinkedIn</a>
+          </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Mgr. Robert Strakoš</span>
+      <span>Ostrava · Česká republika</span>
+    </footer>
+
+  </div>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // Scroll spy
+    const sections = ['uvod', 'sluzby', 'omne', 'kontakt'];
+    const navLinks = document.querySelectorAll('.topnav-links a');
+
+    function onScroll() {
+      let current = 'uvod';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 80) current = id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+</body>
+</html>
