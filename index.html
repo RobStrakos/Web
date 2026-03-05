@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robert Strakoš — ICT Služby</title>
+  <title>Mgr. Robert Strakoš — IT specialista & ICT konzultant Ostrava</title>
+  <meta name="description" content="IT specialista, ICT technik a konzultant z Ostravy. Správa sítí, serverů, Apple zařízení, AI nástroje, vzdělávání, smart home a vzdálená IT podpora. Prvotní konzultace zdarma.">
+  <meta name="keywords" content="IT specialista Ostrava, ICT technik, IT konzultant, správa sítě, sysadmin, Apple Mac podpora, AI automatizace, smart home, vzdálená IT podpora, školení ICT, Robert Strakoš">
+  <meta name="author" content="Mgr. Robert Strakoš">
+  <meta property="og:title" content="Mgr. Robert Strakoš — IT specialista & ICT konzultant Ostrava">
+  <meta property="og:description" content="IT specialista z Ostravy. Správa IT, sítě, Apple, AI, vzdělávání. Prvotní konzultace zdarma.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://robertstrakos.cz">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.9em' font-size='60' x='50%' text-anchor='middle' dominant-baseline='auto' font-family='serif' font-weight='bold' fill='white'>RS</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
@@ -186,9 +194,9 @@
     .hero { margin-bottom: 72px; }
 
     .hero-eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 20px;
@@ -260,15 +268,46 @@
     section:nth-of-type(4) { animation-delay: 0.8s; }
 
     .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--ink);
       margin-bottom: 28px;
     }
 
-    /* ── CARDS ── */
+    /* ── FILTER BUTTONS ── */
+    .filter-btn {
+      padding: 7px 18px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .card {
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.25s;
+    }
+
+    .card.hidden {
+      display: none;
+    }
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -368,6 +407,7 @@
       .about-strip { flex-direction: column; gap: 24px; }
       .about-stats { justify-content: space-around; width: 100%; }
       footer { flex-direction: column; gap: 6px; }
+      #kontakt > div { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -380,6 +420,7 @@
       <ul class="topnav-links">
         <li><a href="#uvod" class="active">Úvod</a></li>
         <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#cenik">Ceník</a></li>
         <li><a href="#omne">O mně</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
@@ -393,6 +434,7 @@
   <nav class="mobile-menu" id="mobileMenu">
     <a href="#uvod">Úvod</a>
     <a href="#sluzby">Služby</a>
+    <a href="#cenik">Ceník</a>
     <a href="#omne">O mně</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
@@ -406,15 +448,16 @@
       </div>
 
     <div class="hero">
-      <p class="hero-eyebrow">IT specialista &amp; ICT technik</p>
-      <h1>Technologie,<br>které <em>fungují.</em></h1>
+      <p class="hero-eyebrow">Technologie · Vzdělávání · Digitální svět</p>
+      <h1>Váš člověk<br>na <em>technologie.</em></h1>
       <p class="hero-sub">
         Pomáhám firmám a jednotlivcům se <strong>správou IT infrastruktury</strong>,
-        zaváděním <strong>AI nástrojů</strong> a vzděláváním
-        v oblasti moderních technologií. Vystudovaný učitel ICT s praxí IT specialisty.
+        sítěmi, Apple zařízeními, chytrou domácností,
+        zaváděním <strong>AI nástrojů</strong>, vzděláváním
+        a vzdálenou podporou — vše na jednom místě.
       </p>
       <div class="hero-cta">
-        <a href="/cdn-cgi/l/email-protection#8bf9e4e9eef9ffcbeef3eae6fbe7eea5e8e4e6" class="btn btn-primary">✉ Napsat zprávu</a>
+        <a href="mailto:robertstrakos@gmail.com" class="btn btn-primary">✉ Napsat zprávu</a>
         <a href="#sluzby" class="btn btn-outline">Zobrazit služby →</a>
       </div>
     </div>
@@ -423,38 +466,57 @@
 
     <section id="sluzby">
       <p class="section-label">Co nabízím</p>
-      <div class="services">
-        <div class="card">
+
+      <!-- Filter tlačítka -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;" id="filterBtns">
+        <button onclick="filterCards('vse')" class="filter-btn active" data-filter="vse">Vše</button>
+        <button onclick="filterCards('infrastruktura')" class="filter-btn" data-filter="infrastruktura">Infrastruktura</button>
+        <button onclick="filterCards('digitalni')" class="filter-btn" data-filter="digitalni">Digitální nástroje</button>
+        <button onclick="filterCards('vzdelavani')" class="filter-btn" data-filter="vzdelavani">Vzdělávání</button>
+      </div>
+
+      <div class="services" id="serviceCards">
+        <div class="card" data-cat="infrastruktura">
           <span class="card-icon">🖥️</span>
-          <p class="card-title">Správa HW &amp; SW</p>
+          <p class="card-title">Správa HW & SW</p>
           <p class="card-desc">Instalace, konfigurace, servis a údržba počítačů, serverů a periferií.</p>
         </div>
-        <div class="card">
+        <div class="card" data-cat="infrastruktura">
           <span class="card-icon">🌐</span>
-          <p class="card-title">Síťová infrastruktura</p>
-          <p class="card-desc">Návrh a správa sítí, WiFi, zabezpečení a vzdálený přístup.</p>
+          <p class="card-title">Síťová infrastruktura & Smart Home</p>
+          <p class="card-desc">Návrh a správa sítí, WiFi, vzdálený přístup. Instalace a konfigurace chytré domácnosti a IoT zařízení.</p>
         </div>
-        <div class="card">
-          <span class="card-icon">🤖</span>
-          <p class="card-title">AI &amp; automatizace</p>
-          <p class="card-desc">Zavádění AI nástrojů do pracovních procesů. ChatGPT, Copilot a další.</p>
+        <div class="card" data-cat="infrastruktura">
+          <span class="card-icon">🛠️</span>
+          <p class="card-title">Správa systémů (SysAdmin)</p>
+          <p class="card-desc">Správa serverů, uživatelských účtů, Active Directory, zálohování a monitoring infrastruktury.</p>
         </div>
-        <div class="card">
-          <span class="card-icon">📚</span>
-          <p class="card-title">Vzdělávání &amp; školení</p>
-          <p class="card-desc">Školení pro firmy i jednotlivce — od základů IT po moderní technologie.</p>
+        <div class="card" data-cat="infrastruktura">
+          <span class="card-icon">🖥️</span>
+          <p class="card-title">Vzdálená IT podpora</p>
+          <p class="card-desc">Rychlá pomoc odkudkoliv přes TeamViewer nebo AnyDesk — bez čekání na fyzickou návštěvu.</p>
         </div>
-        <div class="card">
+        <div class="card" data-cat="digitalni">
           <span class="card-icon">☁️</span>
-          <p class="card-title">Cloud &amp; zálohování</p>
+          <p class="card-title">Cloud & zálohování</p>
           <p class="card-desc">Migrace do cloudu, správa Microsoft 365, Google Workspace, zálohy dat.</p>
         </div>
-        <div class="card">
-          <span class="card-icon">🔒</span>
-          <p class="card-title">Kybernetická bezpečnost</p>
-          <p class="card-desc">Audit zabezpečení, ochrana před hrozbami, základní GDPR poradenství.</p>
+        <div class="card" data-cat="digitalni">
+          <span class="card-icon">🤖</span>
+          <p class="card-title">AI & automatizace</p>
+          <p class="card-desc">Zavádění AI nástrojů do pracovních procesů. ChatGPT, Copilot a další.</p>
         </div>
-        <div class="card">
+        <div class="card" data-cat="digitalni">
+          <span class="card-icon">🍎</span>
+          <p class="card-title">Apple ekosystém & MDM</p>
+          <p class="card-desc">Nastavení, správa a podpora zařízení Apple — Mac, iPhone, iPad. Správa firemních zařízení přes MDM.</p>
+        </div>
+        <div class="card" data-cat="vzdelavani">
+          <span class="card-icon">📚</span>
+          <p class="card-title">Školení & vzdělávání</p>
+          <p class="card-desc">Školení pro firmy i jednotlivce — od základů IT po moderní technologie.</p>
+        </div>
+        <div class="card" data-cat="vzdelavani">
           <span class="card-icon">💡</span>
           <p class="card-title">Digitální finance</p>
           <p class="card-desc">Vzdělávání v oblasti digitálních aktiv, blockchain technologií a bezpečného nakládání s hodnotou v digitálním světě.</p>
@@ -462,25 +524,72 @@
       </div>
     </section>
 
+    <section id="cenik">
+      <p class="section-label">Ceník</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:8px;">
+          <span style="font-size:22px;">👋</span>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);">Prvotní konzultace</p>
+          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Zdarma</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Nezávazná konzultace — probereme váš problém, potřeby a navrhneme řešení. Bez závazku.</p>
+        </div>
+
+        <div style="background:var(--white);border:2px solid var(--accent);border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:8px;position:relative;">
+          <span style="position:absolute;top:-11px;left:20px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;letter-spacing:0.08em;">NEJČASTĚJŠÍ</span>
+          <span style="font-size:22px;">⏱️</span>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);">Hodinová sazba</p>
+          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">1 200 Kč<span style="font-size:14px;font-weight:400;color:var(--muted);"> / hod</span></p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Jednorázové práce, servis, konzultace nebo školení — účtováno dle skutečně odpracovaného času.</p>
+        </div>
+
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:8px;">
+          <span style="font-size:22px;">🤝</span>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);">Smluvní spolupráce</p>
+          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Dohodou</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Dlouhodobá spolupráce, správa infrastruktury nebo pravidelná podpora — cena dle rozsahu.</p>
+        </div>
+
+      </div>
+      <p style="margin-top:20px;font-size:13px;color:var(--muted);">Ceny jsou uvedeny bez DPH. Cestovné mimo Ostravu účtováno dle dohody.</p>
+    </section>
+
     <section id="omne">
       <p class="section-label">O mně</p>
       <div class="about-strip">
         <div class="about-text">
-          <h2>Praktické řešení<br>bez zbytečné složitosti.</h2>
+          <h2>Technologie jsou<br>můj způsob myšlení.</h2>
           <p>
-            Mgr. vystudovaný učitel ICT s 8 lety praxe jako IT specialista a technik.
-            Mám zkušenosti s nasazením technologií v malých i středních firmách.
-            Problémy vysvětluji srozumitelně a navrhuji řešení, která dávají smysl — technicky i ekonomicky.
+            Jsem Mgr. Robert Strakoš — IT specialista, technik a vystudovaný učitel ICT
+            z Ostravy. Digitální technologie nejsou pro mě jen práce, ale přirozený způsob,
+            jak přistupuji ke světu. Baví mě sledovat, jak se technologie vyvíjejí,
+            zkoušet nové nástroje a hlavně — předávat znalosti dál.
           </p>
-        </div>
-        <div class="about-stats">
-          <div class="stat">
-            <p class="stat-num">8+</p>
-            <p class="stat-label">let praxe</p>
+          <p style="margin-top:12px;">
+            Za 8 let praxe jsem prošel správou infrastruktury, podporou uživatelů,
+            nasazováním cloudových řešení i vzděláváním. Věřím, že moderní technologie
+            by měly být dostupné každému — a že správně vysvětlené dokáže pochopit každý.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🎓 Pedagog ICT</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🔧 IT specialista</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🤖 AI nadšenec</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🍎 Apple nadšenec</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">₿ Digitální finance</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">📍 Ostrava</span>
           </div>
-          <div class="stat">
-            <p class="stat-num">Mgr.</p>
-            <p class="stat-label">učitel ICT</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:24px;flex-shrink:0;">
+          <img src="photo.jpg" alt="Mgr. Robert Strakoš" style="width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:50%;border:3px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1);">
+          <div class="about-stats">
+            <div class="stat">
+              <p class="stat-num">8+</p>
+              <p class="stat-label">let praxe</p>
+            </div>
+            <div class="stat">
+              <p class="stat-num">Mgr.</p>
+              <p class="stat-label">učitel ICT</p>
+            </div>
           </div>
         </div>
       </div>
@@ -488,10 +597,51 @@
 
     <section id="kontakt">
       <p class="section-label">Kontakt</p>
-      <div class="contact-row">
-        <a href="/cdn-cgi/l/email-protection#13617c7176616753766b727e637f763d707c7e" class="contact-link">✉ <span class="__cf_email__" data-cfemail="7604191413040236130e171b061a135815191b">[email&#160;protected]</span></a>
-        <a href="https://www.linkedin.com/in/robertstrakoš/" target="_blank" class="contact-link">◈ LinkedIn</a>
-          </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+
+        <!-- Kontaktní info -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <h2 style="font-family:'DM Serif Display',serif;font-size:26px;line-height:1.2;margin-bottom:4px;">Ozvěte se.<br>Rád pomohu.</h2>
+          <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:8px;">
+            Prvotní konzultace je zdarma. Napište mi přes formulář nebo přímo na email — odpovím do 24 hodin.
+          </p>
+          <a href="mailto:robertstrakos@gmail.com" class="contact-link" style="width:fit-content;">✉ robertstrakos@gmail.com</a>
+          <a href="https://www.linkedin.com/in/robertstrakoš/" target="_blank" class="contact-link" style="width:fit-content;">◈ LinkedIn</a>
+        </div>
+
+        <!-- Formulář -->
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:28px 24px;">
+          <form id="contactForm" action="https://formspree.io/f/xpqyarzp" method="POST" style="display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <label style="font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Jméno</label>
+              <input type="text" name="name" required placeholder="Jan Novák"
+                style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none;transition:border-color 0.2s;"
+                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Email</label>
+              <input type="email" name="email" required placeholder="vas@email.cz"
+                style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none;transition:border-color 0.2s;"
+                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Zpráva</label>
+              <textarea name="message" required rows="4" placeholder="Popište co potřebujete..."
+                style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none;resize:vertical;transition:border-color 0.2s;"
+                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+            </div>
+            <button type="submit"
+              style="background:var(--accent);color:#fff;border:none;border-radius:8px;padding:12px 24px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background 0.2s,transform 0.2s;"
+              onmouseover="this.style.background='#1d4ed8';this.style.transform='translateY(-1px)'"
+              onmouseout="this.style.background='var(--accent)';this.style.transform='translateY(0)'">
+              Odeslat zprávu →
+            </button>
+            <p id="formSuccess" style="display:none;font-size:13px;color:var(--green);font-weight:500;">✓ Zpráva odeslána! Ozvu se do 24 hodin.</p>
+            <p id="formError" style="display:none;font-size:13px;color:#dc2626;">Něco se nepovedlo. Napište mi přímo na email.</p>
+          </form>
+        </div>
+
+      </div>
     </section>
 
     <footer>
@@ -502,6 +652,16 @@
   </div>
 
   <script>
+    // Service card filtering
+    function filterCards(cat) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.filter === cat);
+      });
+      document.querySelectorAll('#serviceCards .card').forEach(card => {
+        card.classList.toggle('hidden', cat !== 'vse' && card.dataset.cat !== cat);
+      });
+    }
+
     // Hamburger toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -513,7 +673,7 @@
     });
 
     // Scroll spy
-    const sections = ['uvod', 'sluzby', 'omne', 'kontakt'];
+    const sections = ['uvod', 'sluzby', 'cenik', 'omne', 'kontakt'];
     const navLinks = document.querySelectorAll('.topnav-links a');
 
     function onScroll() {
@@ -527,7 +687,35 @@
       });
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Contact form — Formspree async submit
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type=submit]');
+        btn.textContent = 'Odesílám...';
+        btn.disabled = true;
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.reset();
+            document.getElementById('formSuccess').style.display = 'block';
+            document.getElementById('formError').style.display = 'none';
+            btn.textContent = 'Odesláno ✓';
+          } else {
+            throw new Error();
+          }
+        } catch {
+          document.getElementById('formError').style.display = 'block';
+          btn.textContent = 'Odeslat zprávu →';
+          btn.disabled = false;
+        }
+      });
+    }
   </script>
 </body>
 </html>
