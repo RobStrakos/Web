@@ -752,12 +752,15 @@
   </div>
 
   <script>
-    // Scroll na vrch při načtení - fix pro Safari i ostatní
+    // Fix scroll pro iOS Safari
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual';
     }
+    window.addEventListener('pageshow', function(e) {
+      window.scrollTo(0, 0);
+    });
     window.addEventListener('load', function() {
-      setTimeout(function() { window.scrollTo(0, 0); }, 0);
+      window.scrollTo(0, 0);
     });
 
     document.addEventListener('DOMContentLoaded', function() {
