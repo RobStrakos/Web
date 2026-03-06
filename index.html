@@ -152,7 +152,9 @@
       .hero-stats { grid-template-columns: repeat(2,1fr) !important; }
       .contact-grid { grid-template-columns: 1fr !important; }
       .about-strip { flex-direction: column !important; }
-      .hero-photo { display: none !important; }
+      .hero-photo { display: flex !important; justify-content: center; margin-top: 24px; }
+      .hero-photo img { width: 140px !important; height: 140px !important; }
+      .hero-columns { flex-direction: column !important; }
     }
 
     .page {
@@ -292,20 +294,20 @@
     }
 
     .section-label {
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: block;
     }
 
     .section-title {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(32px, 5vw, 44px);
+      font-size: clamp(22px, 3vw, 28px);
       color: var(--ink);
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 32px;
     }
 
@@ -487,7 +489,7 @@
       <!-- Dekorativní gradient pruh -->
       <div style="position:absolute;left:-32px;top:0;bottom:0;width:4px;background:linear-gradient(to bottom, #2563eb, #60a5fa, transparent);"></div>
 
-      <div style="display:flex;gap:48px;align-items:center;">
+      <div style="display:flex;gap:48px;align-items:center;" class="hero-columns">
 
         <!-- Text vlevo -->
         <div style="flex:1;min-width:0;">
@@ -745,11 +747,13 @@
   </div>
 
   <script>
-    // Scroll na vrch při načtení
+    // Scroll na vrch při načtení - fix pro Safari i ostatní
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual';
     }
-    window.scrollTo(0, 0);
+    window.addEventListener('load', function() {
+      setTimeout(function() { window.scrollTo(0, 0); }, 0);
+    });
 
     document.addEventListener('DOMContentLoaded', function() {
     // Hamburger toggle
