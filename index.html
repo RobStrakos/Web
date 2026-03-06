@@ -742,6 +742,7 @@
   </div>
 
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
     // Hamburger toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -769,6 +770,7 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+    }); // end DOMContentLoaded
 
     // Contact form — Formspree async submit
     const form = document.getElementById('contactForm');
