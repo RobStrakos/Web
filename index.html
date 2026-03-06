@@ -467,13 +467,13 @@
   </header>
 
   <!-- MOBILE MENU -->
-  <nav class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="#uvod">Úvod</a>
     <a href="#sluzby">Služby</a>
     <a href="#cenik">Ceník</a>
     <a href="#omne">O mně</a>
     <a href="#kontakt">Kontakt</a>
-  </nav>
+  </div>
 
   <div class="page">
 
@@ -745,6 +745,12 @@
   </div>
 
   <script>
+    // Scroll na vrch při načtení
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     document.addEventListener('DOMContentLoaded', function() {
     // Hamburger toggle
     const hamburger = document.getElementById('hamburger');
