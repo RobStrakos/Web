@@ -152,9 +152,9 @@
       .hero-stats { grid-template-columns: repeat(2,1fr) !important; }
       .contact-grid { grid-template-columns: 1fr !important; }
       .about-strip { flex-direction: column !important; }
-      .hero-photo { display: flex !important; justify-content: center; margin-top: 24px; }
-      .hero-photo img { width: 140px !important; height: 140px !important; }
+      .hero-photo { display: none !important; }
       .hero-columns { flex-direction: column !important; }
+      .services { grid-template-columns: repeat(2,1fr) !important; }
     }
 
     .page {
@@ -338,7 +338,7 @@
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
@@ -363,7 +363,7 @@
       transform: translateY(-2px);
     }
 
-    .card-icon { width: 44px; height: 44px; background: var(--accent-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .card-icon { font-size: 28px; margin-bottom: 14px; display: block; }
     .card-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
     .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
@@ -467,6 +467,11 @@
       </button>
     </div>
   </header>
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+  </script>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
@@ -756,16 +761,6 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-    // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
-
     // Scroll spy
     const sections = ['uvod', 'sluzby', 'cenik', 'omne', 'kontakt'];
     const navLinks = document.querySelectorAll('.topnav-links a');
