@@ -54,13 +54,14 @@
       height: 56px;
       display: flex;
       align-items: center;
-      padding: 0 32px;
+      padding: 0;
     }
 
     .topnav-inner {
       max-width: 860px;
       margin: 0 auto;
       width: 100%;
+      padding: 0 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -218,7 +219,7 @@
 
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(40px, 8vw, 68px);
+      font-size: clamp(28px, 5vw, 48px);
       line-height: 1.08;
       letter-spacing: -0.01em;
       color: var(--ink);
@@ -267,8 +268,8 @@
       font-family: inherit;
     }
 
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: #2d2d44; transform: translateY(-1px); }
 
     .btn-outline { background: var(--white); color: var(--ink); border: 1.5px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
@@ -287,10 +288,9 @@
     /* Střídání pozadí sekcí */
     section:nth-of-type(even) {
       background: var(--white);
-      margin-left: -32px;
-      margin-right: -32px;
-      padding-left: 32px;
-      padding-right: 32px;
+      border-radius: 12px;
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
     .section-label {
@@ -363,16 +363,26 @@
       transform: translateY(-2px);
     }
 
-    .card-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .price-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .price-card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; margin-top: 4px; }
     .card-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
 
     /* ── ABOUT ── */
     .about-strip {
       background: var(--white);
       border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 32px 36px;
+      border-radius: 12px;
+      padding: 28px 32px;
       display: flex;
       gap: 40px;
       align-items: center;
@@ -499,7 +509,7 @@
         <!-- Text vlevo -->
         <div style="flex:1;min-width:0;">
           <p class="hero-eyebrow">Technologie · Vzdělávání · Digitální svět</p>
-          <h1>Váš člověk<br>na <em>technologie.</em></h1>
+          <h1>Technologie řeším,<br>abyste vy <em>nemuseli.</em></h1>
           <p class="hero-sub">
             Pomáhám firmám a jednotlivcům se <strong>správou IT infrastruktury</strong>,
             sítěmi, Apple zařízeními, chytrou domácností,
@@ -510,42 +520,16 @@
             <a href="#kontakt" class="btn btn-primary">✉ Napsat zprávu</a>
             <a href="#sluzby" class="btn btn-outline">Zobrazit služby →</a>
           </div>
-          <p style="margin-top:20px;font-size:14px;color:var(--muted);font-style:italic;opacity:0;animation:up 0.5s ease 0.55s forwards;">
-            „Technologie řeším, abyste vy nemuseli."
-          </p>
         </div>
 
         <!-- Fotka vpravo -->
         <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:12px;" class="hero-photo">
           <img src="photo.jpg" alt="Mgr. Robert Strakoš"
-            style="width:220px;height:220px;object-fit:cover;object-position:center top;border-radius:20px;border:3px solid var(--border);box-shadow:0 12px 40px rgba(37,99,235,0.15);">
+            style="width:220px;height:220px;object-fit:cover;object-position:center top;border-radius:12px;border:1.5px solid var(--border);box-shadow:0 8px 24px rgba(37,99,235,0.1);">
         </div>
 
       </div>
 
-      <!-- Statistiky -->
-      <div class="hero-stats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px;opacity:0;animation:up 0.5s ease 0.65s forwards;">
-        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:20px;text-align:center;">
-          <p style="font-size:22px;margin-bottom:6px;">🕐</p>
-          <p style="font-family:'DM Serif Display',serif;font-size:26px;color:var(--accent);line-height:1;">8+</p>
-          <p style="font-size:11px;color:var(--muted);margin-top:6px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;">let praxe</p>
-        </div>
-        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:20px;text-align:center;">
-          <p style="font-size:22px;margin-bottom:6px;">🛠️</p>
-          <p style="font-family:'DM Serif Display',serif;font-size:26px;color:var(--accent);line-height:1;">9</p>
-          <p style="font-size:11px;color:var(--muted);margin-top:6px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;">oblastí služeb</p>
-        </div>
-        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:20px;text-align:center;">
-          <p style="font-size:22px;margin-bottom:6px;">⚡</p>
-          <p style="font-family:'DM Serif Display',serif;font-size:26px;color:var(--accent);line-height:1;">24h</p>
-          <p style="font-size:11px;color:var(--muted);margin-top:6px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;">doba odezvy</p>
-        </div>
-        <div style="background:var(--accent);border:1.5px solid var(--accent);border-radius:12px;padding:20px;text-align:center;">
-          <p style="font-size:22px;margin-bottom:6px;">👋</p>
-          <p style="font-family:'DM Serif Display',serif;font-size:26px;color:#fff;line-height:1;">Zdarma</p>
-          <p style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:6px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;">první konzultace</p>
-        </div>
-      </div>
     </div>
 
     </div><!-- /uvod -->
@@ -574,29 +558,29 @@
 
       <div class="services" id="serviceCards">
         <div class="card" data-cat="infrastruktura">
+          <span class="card-icon">🤝</span>
+          <p class="card-title">Konzultace & IT poradenství</p>
+          <p class="card-desc">Nezávislé poradenství při výběru technologií, řešení problémů a plánování IT infrastruktury — pro firmy i jednotlivce.</p>
+        </div>
+        <div class="card" data-cat="infrastruktura">
           <span class="card-icon">🖥️</span>
-          <p class="card-title">Správa HW & SW</p>
-          <p class="card-desc">Instalace, konfigurace, servis a údržba počítačů, serverů a periferií.</p>
+          <p class="card-title">Správa IT & systémů</p>
+          <p class="card-desc">Instalace, konfigurace a servis HW & SW. Správa serverů, uživatelských účtů, Active Directory a monitoring infrastruktury.</p>
         </div>
         <div class="card" data-cat="infrastruktura">
           <span class="card-icon">🌐</span>
           <p class="card-title">Sítě & Smart Home</p>
           <p class="card-desc">Návrh a správa sítí, WiFi, vzdálený přístup. Instalace a konfigurace chytré domácnosti a IoT zařízení.</p>
         </div>
-        <div class="card" data-cat="infrastruktura">
-          <span class="card-icon">🛠️</span>
-          <p class="card-title">Správa systémů (SysAdmin)</p>
-          <p class="card-desc">Správa serverů, uživatelských účtů, Active Directory, zálohování a monitoring infrastruktury.</p>
-        </div>
-        <div class="card" data-cat="infrastruktura">
-          <span class="card-icon">💻</span>
-          <p class="card-title">Vzdálená IT podpora</p>
-          <p class="card-desc">Rychlá pomoc odkudkoliv přes TeamViewer nebo AnyDesk — bez čekání na fyzickou návštěvu.</p>
-        </div>
         <div class="card" data-cat="digitalni">
           <span class="card-icon">☁️</span>
           <p class="card-title">Cloud & zálohování</p>
           <p class="card-desc">Migrace do cloudu, správa Microsoft 365, Google Workspace, zálohy dat.</p>
+        </div>
+        <div class="card" data-cat="digitalni">
+          <span class="card-icon">📊</span>
+          <p class="card-title">Cloud & podnikové systémy</p>
+          <p class="card-desc">Podpora a správa podnikových systémů. Zkušenosti s ERP K2 a provozními systémy v průmyslovém prostředí.</p>
         </div>
         <div class="card" data-cat="digitalni">
           <span class="card-icon">🤖</span>
@@ -608,15 +592,15 @@
           <p class="card-title">Apple & MDM</p>
           <p class="card-desc">Nastavení, správa a podpora zařízení Apple — Mac, iPhone, iPad. Správa firemních zařízení přes MDM.</p>
         </div>
-        <div class="card" data-cat="digitalni">
-          <span class="card-icon">📊</span>
-          <p class="card-title">Cloud & podnikové systémy</p>
-          <p class="card-desc">Podpora a správa podnikových systémů. Zkušenosti s ERP K2 a provozními systémy v průmyslovém prostředí.</p>
-        </div>
         <div class="card" data-cat="vzdelavani">
           <span class="card-icon">📚</span>
           <p class="card-title">Vzdělávání & digitální finance</p>
           <p class="card-desc">Školení pro firmy i jednotlivce — od základů IT po AI Act a kybernetickou bezpečnost. Vzdělávání v oblasti digitálních aktiv a blockchain technologií.</p>
+        </div>
+        <div class="card" data-cat="digitalni">
+          <span class="card-icon">🌍</span>
+          <p class="card-title">Webová prezentace & Google Business</p>
+          <p class="card-desc">Tvorba a správa webu pro živnostníky a malé firmy. Nastavení a optimalizace Google Business profilu pro lepší viditelnost v místním vyhledávání.</p>
         </div>
       </div>
     </section>
@@ -624,32 +608,31 @@
     <section id="cenik">
       <p class="section-label">Ceník</p>
       <h2 class="section-title">Transparentní ceny<br>bez překvapení</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;">
 
-        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;">
+        <div class="price-card">
           <span style="font-size:22px;">👋</span>
           <p style="font-size:15px;font-weight:600;color:var(--ink);">Prvotní konzultace</p>
           <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Zdarma</p>
-          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Nezávazná konzultace — probereme váš problém, potřeby a navrhneme řešení. Bez závazku.</p>
+          <p class="price-card-desc">Nezávazná konzultace — probereme váš problém, potřeby a navrhneme řešení. Bez závazku.</p>
         </div>
 
-        <div style="background:var(--white);border:2px solid var(--accent);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;position:relative;">
-          <span style="position:absolute;top:-11px;left:20px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;letter-spacing:0.08em;">NEJČASTĚJŠÍ</span>
+        <div class="price-card" style="border:1.5px solid var(--border);">
           <span style="font-size:22px;">⏱️</span>
           <p style="font-size:15px;font-weight:600;color:var(--ink);">Hodinová sazba</p>
-          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">999 Kč<span style="font-size:14px;font-weight:400;color:var(--muted);"> / hod</span></p>
-          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Jednorázové práce, servis, konzultace nebo školení — účtováno dle skutečně odpracovaného času.</p>
+          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">990 Kč<span style="font-size:14px;font-weight:400;color:var(--muted);"> / hod</span></p>
+          <p class="price-card-desc">Jednorázové práce, servis, konzultace nebo školení — účtováno dle skutečně odpracovaného času.</p>
         </div>
 
-        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;">
+        <div class="price-card">
           <span style="font-size:22px;">🤝</span>
           <p style="font-size:15px;font-weight:600;color:var(--ink);">Smluvní spolupráce</p>
           <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Dohodou</p>
-          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Dlouhodobá spolupráce pro firmy, školy i domácnosti — cena dle rozsahu a náročnosti.</p>
+          <p class="price-card-desc">Dlouhodobá spolupráce pro firmy, školy i domácnosti — cena dle rozsahu a náročnosti.</p>
         </div>
 
       </div>
-      <p style="margin-top:20px;font-size:13px;color:var(--muted);">Cestovné mimo Ostravu účtováno dle dohody.</p>
+      <p style="margin-top:20px;font-size:13px;color:var(--muted);">Cestovné mimo Ostravu účtováno 20 Kč/km.</p>
     </section>
 
     <section id="omne">
@@ -678,7 +661,7 @@
           </div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:24px;flex-shrink:0;">
-          <img src="photo.jpg" alt="Mgr. Robert Strakoš" style="width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:50%;border:3px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1);">
+          <img src="photo.jpg" alt="Mgr. Robert Strakoš" style="width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:12px;border:1.5px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.08);">
           <div class="about-stats">
             <div class="stat">
               <p class="stat-num">8+</p>
@@ -699,14 +682,17 @@
 
       <div style="display:flex;gap:24px;align-items:center;margin-bottom:24px;flex-wrap:wrap;">
         <p style="font-size:14px;color:var(--muted);line-height:1.65;flex:1;min-width:200px;">
-          Prvotní konzultace je zdarma. Napište mi přes formulář nebo na LinkedIn — odpovím do 24 hodin.
+          Prvotní konzultace zdarma — ozvu se bez zbytečného odkladu.
         </p>
         <a href="https://www.linkedin.com/in/robertstrakoš/" target="_blank" class="contact-link" style="white-space:nowrap;">◈ LinkedIn</a>
+        <a href="https://share.google/mFutVP5uX6B1I9Tg3" target="_blank" class="contact-link" style="white-space:nowrap;">◈ Google Business</a>
       </div>
 
       <!-- Formulář přes celou šířku -->
       <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:24px;">
         <form id="contactForm" action="https://formspree.io/f/xpqyarzp" method="POST" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <!-- Honeypot - skryté před uživatelem, boti ho vyplní -->
+          <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off">
           <div>
             <label style="font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Jméno</label>
             <input type="text" name="name" required placeholder="Jan Novák"
@@ -725,6 +711,12 @@
               style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none;resize:vertical;transition:border-color 0.2s;"
               onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
           </div>
+          <div style="grid-column:1/-1;">
+            <label style="font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Ověření <span id="captchaQuestion" style="color:var(--ink);font-size:13px;letter-spacing:0;text-transform:none;"></span></label>
+            <input type="text" id="captchaInput" placeholder="Vaše odpověď" autocomplete="off"
+              style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
           <div style="grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
             <button type="submit"
               style="background:var(--accent);color:#fff;border:none;border-radius:8px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background 0.2s,transform 0.2s;"
@@ -732,7 +724,7 @@
               onmouseout="this.style.background='var(--accent)';this.style.transform='translateY(0)'">
               Odeslat zprávu →
             </button>
-            <p id="formSuccess" style="display:none;font-size:13px;color:var(--green);font-weight:500;">✓ Zpráva odeslána! Ozvu se do 24 hodin.</p>
+            <p id="formSuccess" style="display:none;font-size:13px;color:var(--green);font-weight:500;">✓ Zpráva odeslána! Ozvu se bez zbytečného odkladu.</p>
             <p id="formError" style="display:none;font-size:13px;color:#dc2626;">Něco se nepovedlo. Zkuste to znovu nebo napište na LinkedIn.</p>
           </div>
         </form>
@@ -760,16 +752,37 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
+    // Klik na Úvod = scroll na vrch
+    document.querySelectorAll('a[href="#uvod"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
     // Scroll spy
     const sections = ['uvod', 'sluzby', 'cenik', 'omne', 'kontakt'];
     const navLinks = document.querySelectorAll('.topnav-links a');
 
     function onScroll() {
-      let current = 'uvod';
+      const scrollY = window.scrollY;
+      // Nahoře stránky = úvod
+      if (scrollY < 100) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#uvod');
+        });
+        return;
+      }
+      let current = '';
       sections.forEach(id => {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 80) current = id;
+        if (el && scrollY >= el.offsetTop - 80) current = id;
       });
+      // Pokud jsme za poslední sekcí, odeber highlight
+      const lastSection = document.getElementById(sections[sections.length - 1]);
+      if (lastSection && scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
+        current = sections[sections.length - 1];
+      }
       navLinks.forEach(a => {
         a.classList.toggle('active', a.getAttribute('href') === '#' + current);
       });
@@ -777,6 +790,13 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    // Captcha
+    const a = Math.floor(Math.random() * 9) + 1;
+    const b = Math.floor(Math.random() * 9) + 1;
+    const captchaEl = document.getElementById('captchaQuestion');
+    if (captchaEl) captchaEl.textContent = '— Kolik je ' + a + ' + ' + b + '?';
+
     }); // end DOMContentLoaded
 
     // Contact form — Formspree async submit
@@ -784,6 +804,14 @@
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        // Honeypot check
+        if (form.querySelector('input[name="_honey"]').value !== '') return;
+        const captchaVal = parseInt(document.getElementById('captchaInput').value);
+        if (captchaVal !== a + b) {
+          document.getElementById('captchaInput').style.borderColor = '#dc2626';
+          document.getElementById('captchaInput').placeholder = 'Špatná odpověď, zkuste znovu';
+          return;
+        }
         const btn = form.querySelector('button[type=submit]');
         btn.textContent = 'Odesílám...';
         btn.disabled = true;
@@ -797,4 +825,19 @@
             form.reset();
             document.getElementById('formSuccess').style.display = 'block';
             document.getElementById('formError').style.display = 'none';
-            btn.textContent = 'Odeslán
+            btn.textContent = 'Odesláno ✓';
+          } else {
+            document.getElementById('formError').style.display = 'block';
+            btn.textContent = 'Odeslat zprávu →';
+            btn.disabled = false;
+          }
+        } catch {
+          document.getElementById('formError').style.display = 'block';
+          btn.textContent = 'Odeslat zprávu →';
+          btn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
