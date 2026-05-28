@@ -34,6 +34,7 @@
 
     html { scroll-behavior: smooth; }
 
+    html, body { overflow-x: hidden; }
     body {
       background: var(--bg);
       color: var(--ink);
@@ -161,7 +162,7 @@
     .page {
       max-width: 860px;
       margin: 0 auto;
-      padding: 72px 32px 40px;
+      padding: 40px 32px 40px;
     }
 
     /* ── NAV ── */
@@ -203,8 +204,118 @@
 
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-    /* ── HERO ── */
-    .hero { margin-bottom: 0; position: relative; }
+    /* ── HERO FULLSCREEN ── */
+    .hero-fullscreen {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .hero-fullscreen-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://robertstrakos.cz/photo.jpg') center top / cover no-repeat;
+      filter: brightness(0.55);
+      transform: scale(1.03);
+      animation: zoomin 8s ease forwards;
+    }
+
+    @keyframes zoomin {
+      from { transform: scale(1.08); }
+      to { transform: scale(1.0); }
+    }
+
+    .hero-fullscreen-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+    }
+
+    .hero-fullscreen-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 32px 64px;
+      box-sizing: border-box;
+      color: #fff;
+    }
+
+    .hero-fullscreen-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: up 0.6s ease 0.2s forwards;
+    }
+
+    .hero-fullscreen-h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: up 0.6s ease 0.35s forwards;
+    }
+
+    .hero-fullscreen-h1 em {
+      font-style: italic;
+      color: #93c5fd;
+    }
+
+    .hero-fullscreen-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: up 0.6s ease 0.5s forwards;
+    }
+
+    .hero-fullscreen-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: up 0.6s ease 0.65s forwards;
+    }
+
+    .hero-fullscreen-badge {
+      position: absolute;
+      top: 80px;
+      right: 32px;
+      z-index: 2;
+      opacity: 0;
+      animation: up 0.6s ease 0.1s forwards;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255,255,255,0.5);
+      font-size: 22px;
+      animation: bounce 2s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
 
     .hero-eyebrow {
       font-size: 15px;
@@ -485,9 +596,9 @@
       <a href="#uvod" class="topnav-logo">Mgr. Robert Strakoš</a>
       <ul class="topnav-links">
         <li><a href="#uvod" class="active">Úvod</a></li>
+        <li><a href="#omne">O mně</a></li>
         <li><a href="#sluzby">Služby</a></li>
         <li><a href="#cenik">Ceník</a></li>
-        <li><a href="#omne">O mně</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -504,53 +615,78 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#uvod">Úvod</a>
+    <a href="#omne">O mně</a>
     <a href="#sluzby">Služby</a>
     <a href="#cenik">Ceník</a>
-    <a href="#omne">O mně</a>
     <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <div id="uvod" class="hero-fullscreen">
+    <div class="hero-fullscreen-bg"></div>
+    <div class="hero-fullscreen-overlay"></div>
+
+    <!-- Badge vpravo nahoře -->
+    <div class="hero-fullscreen-badge">
+      <span class="nav-badge">Dostupný pro spolupráci</span>
+    </div>
+
+    <!-- Obsah dole -->
+    <div class="hero-fullscreen-content">
+      <p class="hero-fullscreen-eyebrow">Ostrava · IT specialista · 8+ let praxe</p>
+      <h1 class="hero-fullscreen-h1">Technologie řeším, abyste vy <em>nemuseli.</em></h1>
+      <p class="hero-fullscreen-sub">
+        Pomáhám firmám a jednotlivcům se správou IT infrastruktury, sítěmi, Apple zařízeními, zaváděním AI nástrojů a vzděláváním — vše na jednom místě.
+      </p>
+      <div class="hero-fullscreen-cta">
+        <a href="#kontakt" class="btn btn-primary">✉ Napsat zprávu</a>
+        <a href="#sluzby" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);background:transparent;">Zobrazit služby →</a>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint">↓</div>
   </div>
 
   <div class="page">
 
-    <div id="uvod">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;opacity:0;animation:up 0.5s ease 0.05s forwards;">
-        <span style="font-size:11px;color:var(--muted);font-weight:500;letter-spacing:0.05em;">Ostrava · Česká republika</span>
-        <span class="nav-badge">Dostupný pro spolupráci</span>
-      </div>
-
-    <div class="hero">
-      <!-- Dekorativní gradient pruh -->
-      <div style="position:absolute;left:-32px;top:0;bottom:0;width:4px;background:linear-gradient(to bottom, #2563eb, #60a5fa, transparent);"></div>
-
-      <div style="display:flex;gap:48px;align-items:center;" class="hero-columns">
-
-        <!-- Text vlevo -->
-        <div style="flex:1;min-width:0;">
-          <p class="hero-eyebrow">Technologie · Vzdělávání · Digitální svět</p>
-          <h1>Technologie řeším,<br>abyste vy <em>nemuseli.</em></h1>
-          <p class="hero-sub">
-            Pomáhám firmám a jednotlivcům se <strong>správou IT infrastruktury</strong>,
-            sítěmi, Apple zařízeními, chytrou domácností,
-            zaváděním <strong>AI nástrojů</strong>, vzděláváním
-            a vzdálenou podporou — vše na jednom místě.
+    <section id="omne">
+      <p class="section-label">O mně</p>
+      <div class="about-strip">
+        <div class="about-text">
+          <h2>Technologie jsou<br>můj způsob myšlení.</h2>
+          <p>
+            Jsem IT specialista z Ostravy s osmiletou praxí v oblasti správy infrastruktury,
+            podnikových systémů a uživatelské podpory. Pracuji v průmyslovém prostředí
+            kde denně řeším reálné technické problémy — od správy sítí přes cloudová
+            řešení až po podporu koncových uživatelů.
           </p>
-          <div class="hero-cta">
-            <a href="#kontakt" class="btn btn-primary">✉ Napsat zprávu</a>
-            <a href="#sluzby" class="btn btn-outline">Zobrazit služby →</a>
+          <p style="margin-top:12px;">
+            Technologie mě baví — a baví mě ještě víc, když začnou bavit i ostatní. Mám zkušenosti jak z praxe, tak ze vzdělávání — a přesně to využívám když pomáhám lidem a firmám najít cestu, která jim skutečně sedí.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🎓 Mgr. ICT vzdělávání</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🔧 IT specialista</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🤖 AI nadšenec</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🍎 Apple nadšenec</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">₿ Digitální finance</span>
+            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">📍 Ostrava</span>
           </div>
         </div>
-
-        <!-- Fotka vpravo -->
-        <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:12px;" class="hero-photo">
-          <img src="photo.jpg" alt="Mgr. Robert Strakoš"
-            style="width:220px;height:220px;object-fit:cover;object-position:center top;border-radius:12px;border:1.5px solid var(--border);box-shadow:0 8px 24px rgba(37,99,235,0.1);">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:24px;flex-shrink:0;">
+          <img src="photo.jpg" alt="Mgr. Robert Strakoš" style="width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:12px;border:1.5px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+          <div class="about-stats">
+            <div class="stat">
+              <p class="stat-num">8+</p>
+              <p class="stat-label">let praxe</p>
+            </div>
+            <div class="stat">
+              <p class="stat-num">Mgr.</p>
+              <p class="stat-label">IT & vzdělávání</p>
+            </div>
+          </div>
         </div>
-
       </div>
-
-    </div>
-
-    </div><!-- /uvod -->
+    </section>
 
     <section id="sluzby">
       <p class="section-label">Co nabízím</p>
@@ -635,61 +771,22 @@
           <p class="price-card-desc">Nezávazná konzultace — probereme váš problém, potřeby a navrhneme řešení. Bez závazku.</p>
         </div>
 
-        <div class="price-card" style="border:1.5px solid var(--border);">
+        <div class="price-card">
           <span style="font-size:22px;">⏱️</span>
-          <p style="font-size:15px;font-weight:600;color:var(--ink);">Hodinová sazba</p>
-          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">990 Kč<span style="font-size:14px;font-weight:400;color:var(--muted);"> / hod</span></p>
-          <p class="price-card-desc">Jednorázové práce, servis, konzultace nebo školení — účtováno dle skutečně odpracovaného času.</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);">Jednorázové práce</p>
+          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Dle rozsahu</p>
+          <p class="price-card-desc">Servis, instalace, konfigurace nebo školení — cena vždy domluvena předem, žádná překvapení.</p>
         </div>
 
         <div class="price-card">
           <span style="font-size:22px;">🤝</span>
           <p style="font-size:15px;font-weight:600;color:var(--ink);">Smluvní spolupráce</p>
           <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Dohodou</p>
-          <p class="price-card-desc">Dlouhodobá spolupráce pro firmy, školy i domácnosti — cena dle rozsahu a náročnosti.</p>
+          <p class="price-card-desc">Dlouhodobá spolupráce pro firmy i jednotlivce — cena dle rozsahu a náročnosti.</p>
         </div>
 
       </div>
       <p style="margin-top:20px;font-size:13px;color:var(--muted);">Cestovné mimo Ostravu účtováno 20 Kč/km.</p>
-    </section>
-
-    <section id="omne">
-      <p class="section-label">O mně</p>
-      <div class="about-strip">
-        <div class="about-text">
-          <h2>Technologie jsou<br>můj způsob myšlení.</h2>
-          <p>
-            Jsem IT specialista z Ostravy s osmiletou praxí v oblasti správy infrastruktury,
-            podnikových systémů a uživatelské podpory. Pracuji v průmyslovém prostředí
-            kde denně řeším reálné technické problémy — od správy sítí přes cloudová
-            řešení až po podporu koncových uživatelů.
-          </p>
-          <p style="margin-top:12px;">
-            Technologie mě baví — a baví mě ještě víc, když začnou bavit i ostatní. Mám zkušenosti jak z praxe, tak ze vzdělávání — a přesně to využívám když pomáhám lidem a firmám najít cestu, která jim skutečně sedí.
-          </p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🎓 Mgr. ICT vzdělávání</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🔧 IT specialista</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🤖 AI nadšenec</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🍎 Apple nadšenec</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">₿ Digitální finance</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">📍 Ostrava</span>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:24px;flex-shrink:0;">
-          <img src="photo.jpg" alt="Mgr. Robert Strakoš" style="width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:12px;border:1.5px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.08);">
-          <div class="about-stats">
-            <div class="stat">
-              <p class="stat-num">8+</p>
-              <p class="stat-label">let praxe</p>
-            </div>
-            <div class="stat">
-              <p class="stat-num">Mgr.</p>
-              <p class="stat-label">IT & vzdělávání</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="kontakt">
@@ -777,7 +874,7 @@
     });
 
     // Scroll spy
-    const sections = ['uvod', 'sluzby', 'cenik', 'omne', 'kontakt'];
+    const sections = ['uvod', 'omne', 'sluzby', 'cenik', 'kontakt'];
     const navLinks = document.querySelectorAll('.topnav-links a');
 
     function onScroll() {
