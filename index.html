@@ -220,10 +220,12 @@
     .hero-fullscreen-bg {
       position: absolute;
       inset: 0;
-      background: url('https://robertstrakos.cz/photohero.JPEG') center top / cover no-repeat;
-      filter: brightness(0.55);
+      background: url('https://robertstrakos.cz/photohero.JPEG') center 15% / cover no-repeat;
+      filter: brightness(0.75);
       transform: scale(1.03);
       animation: zoomin 8s ease forwards;
+      will-change: transform;
+      backface-visibility: hidden;
     }
 
     @keyframes zoomin {
@@ -234,7 +236,7 @@
     .hero-fullscreen-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 50%, transparent 100%);
     }
 
     .hero-fullscreen-content {
@@ -243,17 +245,22 @@
       max-width: 860px;
       margin: 0 auto;
       width: 100%;
-      padding: 0 32px 64px;
+      padding: 0 32px 32px;
       box-sizing: border-box;
       color: #fff;
     }
 
     .hero-fullscreen-eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
       margin-bottom: 16px;
       opacity: 0;
       animation: up 0.6s ease 0.2s forwards;
@@ -663,26 +670,28 @@
           <p style="margin-top:12px;">
             Technologie mě baví — a baví mě ještě víc, když začnou bavit i ostatní. Mám zkušenosti jak z praxe, tak ze vzdělávání — a přesně to využívám když pomáhám lidem a firmám najít cestu, která jim skutečně sedí.
           </p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🎓 Mgr. ICT vzdělávání</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🔧 IT specialista</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🤖 AI nadšenec</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">🍎 Apple nadšenec</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">₿ Digitální finance</span>
-            <span style="padding:4px 12px;background:var(--accent-light);color:var(--accent);border-radius:20px;font-size:12px;font-weight:500;">📍 Ostrava</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;">
+            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Mgr. ICT vzdělávání</span>
+            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
+            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">IT specialista</span>
+            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
+            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">AI nadšenec</span>
+            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
+            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Apple nadšenec</span>
+            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
+            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Digitální finance</span>
+            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
+            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Ostrava</span>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:24px;flex-shrink:0;">
-          <img src="photohero.JPEG" alt="Mgr. Robert Strakoš" style="width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:12px;border:1.5px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.08);">
-          <div class="about-stats">
-            <div class="stat">
-              <p class="stat-num">8+</p>
-              <p class="stat-label">let praxe</p>
-            </div>
-            <div class="stat">
-              <p class="stat-num">Mgr.</p>
-              <p class="stat-label">IT & vzdělávání</p>
-            </div>
+        <div class="about-stats">
+          <div class="stat">
+            <p class="stat-num">8+</p>
+            <p class="stat-label">let praxe</p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">Mgr.</p>
+            <p class="stat-label">IT & vzdělávání</p>
           </div>
         </div>
       </div>
