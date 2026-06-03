@@ -517,11 +517,11 @@
 
     .about-text p { font-size: 14px; color: var(--muted); line-height: 1.75; }
 
-    .about-stats { display: flex; gap: 32px; flex-shrink: 0; }
+    .about-stats { display: flex; gap: 40px; flex-shrink: 0; }
 
-    .stat { text-align: center; }
-    .stat-num { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--accent); line-height: 1; }
-    .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .stat { border-left: 3px solid var(--accent); padding-left: 16px; text-align: left; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--ink); line-height: 1; }
+    .stat-label { font-size: 11px; color: var(--muted); margin-top: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
 
     /* ── CONTACT ── */
     .contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -690,6 +690,10 @@
             <p class="stat-label">let praxe</p>
           </div>
           <div class="stat">
+            <p class="stat-num">9</p>
+            <p class="stat-label">oblastí služeb</p>
+          </div>
+          <div class="stat">
             <p class="stat-num">Mgr.</p>
             <p class="stat-label">IT & vzdělávání</p>
           </div>
@@ -701,69 +705,51 @@
       <p class="section-label">Co nabízím</p>
       <h2 class="section-title">Služby pro firmy<br>i jednotlivce</h2>
 
-      <!-- Filter tlačítka -->
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;" id="filterBtns">
-        <button onclick="filterCards('vse')" class="filter-btn active" data-filter="vse">Vše</button>
-        <button onclick="filterCards('infrastruktura')" class="filter-btn" data-filter="infrastruktura">Infrastruktura</button>
-        <button onclick="filterCards('digitalni')" class="filter-btn" data-filter="digitalni">Digitální nástroje</button>
-        <button onclick="filterCards('vzdelavani')" class="filter-btn" data-filter="vzdelavani">Vzdělávání</button>
-      </div>
-      <script>
-        function filterCards(cat) {
-          document.querySelectorAll('.filter-btn').forEach(b => {
-            b.classList.toggle('active', b.dataset.filter === cat);
-          });
-          document.querySelectorAll('#serviceCards .card').forEach(card => {
-            card.classList.toggle('hidden', cat !== 'vse' && card.dataset.cat !== cat);
-          });
-        }
-      </script>
-
-      <div class="services" id="serviceCards">
-        <div class="card" data-cat="infrastruktura">
-          <span class="card-icon">🤝</span>
-          <p class="card-title">Konzultace & IT poradenství</p>
-          <p class="card-desc">Nezávislé poradenství při výběru technologií, řešení problémů a plánování IT infrastruktury — pro firmy i jednotlivce.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;">
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Konzultace & IT poradenství</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Nezávislé poradenství při výběru technologií a plánování IT infrastruktury.</p>
         </div>
-        <div class="card" data-cat="infrastruktura">
-          <span class="card-icon">🖥️</span>
-          <p class="card-title">Správa IT & systémů</p>
-          <p class="card-desc">Instalace, konfigurace a servis HW & SW. Správa serverů, uživatelských účtů, Active Directory a monitoring infrastruktury.</p>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Správa IT & systémů</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Instalace, konfigurace a servis HW & SW, serverů a Active Directory.</p>
         </div>
-        <div class="card" data-cat="infrastruktura">
-          <span class="card-icon">🌐</span>
-          <p class="card-title">Sítě & Smart Home</p>
-          <p class="card-desc">Návrh a správa sítí, WiFi, vzdálený přístup. Instalace a konfigurace chytré domácnosti a IoT zařízení.</p>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Sítě & Smart Home</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Návrh a správa sítí, WiFi, vzdálený přístup, IoT a chytrá domácnost.</p>
         </div>
-        <div class="card" data-cat="infrastruktura">
-          <span class="card-icon">☁️</span>
-          <p class="card-title">Cloud & zálohování</p>
-          <p class="card-desc">Migrace do cloudu, správa Microsoft 365, Google Workspace, zálohy dat.</p>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Cloud & zálohování</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Migrace do cloudu, Microsoft 365, Google Workspace, zálohy dat.</p>
         </div>
-        <div class="card" data-cat="digitalni">
-          <span class="card-icon">📊</span>
-          <p class="card-title">Cloud & podnikové systémy</p>
-          <p class="card-desc">Podpora a správa podnikových systémů. Zkušenosti s ERP K2 a provozními systémy v průmyslovém prostředí.</p>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Digitální nástroje</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Cloud & podnikové systémy</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Podpora ERP K2 a provozních systémů v průmyslovém prostředí.</p>
         </div>
-        <div class="card" data-cat="digitalni">
-          <span class="card-icon">🤖</span>
-          <p class="card-title">AI & automatizace</p>
-          <p class="card-desc">Zavádění AI nástrojů do pracovních procesů. ChatGPT, Copilot a další. Školení dle AI Act.</p>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Digitální nástroje</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">AI & automatizace</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Zavádění AI nástrojů do praxe — ChatGPT, Copilot, školení dle AI Act.</p>
         </div>
-        <div class="card" data-cat="digitalni">
-          <span class="card-icon">🍎</span>
-          <p class="card-title">Apple & MDM</p>
-          <p class="card-desc">Nastavení, správa a podpora zařízení Apple — Mac, iPhone, iPad. Správa firemních zařízení přes MDM.</p>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Digitální nástroje</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Apple & MDM</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Správa a podpora zařízení Apple — Mac, iPhone, iPad, firemní MDM.</p>
         </div>
-        <div class="card" data-cat="vzdelavani">
-          <span class="card-icon">📚</span>
-          <p class="card-title">Vzdělávání & digitální finance</p>
-          <p class="card-desc">Školení pro firmy i jednotlivce — od základů IT po AI Act a kybernetickou bezpečnost. Vzdělávání v oblasti digitálních aktiv a blockchain technologií.</p>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Vzdělávání</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Vzdělávání & digitální finance</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Školení od základů IT po AI Act, kybernetickou bezpečnost a blockchain.</p>
         </div>
-        <div class="card" data-cat="digitalni">
-          <span class="card-icon">🌍</span>
-          <p class="card-title">Web, Google Business & Analytics</p>
-          <p class="card-desc">Tvorba a správa webu pro živnostníky a malé firmy. Nastavení Google Business profilu pro viditelnost v místním vyhledávání a Google Analytics pro přehled o návštěvnosti webu.</p>
+        <div style="padding:20px 24px;grid-column:1/-1;">
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Online přítomnost</p>
+          <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Web, Google Business & Analytics</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;">Tvorba a správa webu pro živnostníky a malé firmy. Nastavení Google Business profilu a Google Analytics pro přehled o návštěvnosti.</p>
         </div>
       </div>
     </section>
@@ -774,23 +760,23 @@
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;">
 
         <div class="price-card">
-          <span style="font-size:22px;">👋</span>
-          <p style="font-size:15px;font-weight:600;color:var(--ink);">Prvotní konzultace</p>
-          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Zdarma</p>
-          <p class="price-card-desc">Nezávazná konzultace — probereme váš problém, potřeby a navrhneme řešení. Bez závazku.</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Začínáme</p>
+          <p style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Prvotní konzultace</p>
+          <p style="font-size:36px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--ink);margin-bottom:12px;">Zdarma</p>
+          <p class="price-card-desc">Nezávazná konzultace — probereme váš problém, potřeby a navrhneme řešení.</p>
         </div>
 
         <div class="price-card">
-          <span style="font-size:22px;">⏱️</span>
-          <p style="font-size:15px;font-weight:600;color:var(--ink);">Jednorázové práce</p>
-          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Dle rozsahu</p>
-          <p class="price-card-desc">Servis, instalace, konfigurace nebo školení — cena vždy domluvena předem, žádná překvapení.</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Jednorázově</p>
+          <p style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Jednorázové práce</p>
+          <p style="font-size:36px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--ink);margin-bottom:12px;">Dle rozsahu</p>
+          <p class="price-card-desc">Servis, instalace, konfigurace nebo školení — cena vždy domluvena předem.</p>
         </div>
 
         <div class="price-card">
-          <span style="font-size:22px;">🤝</span>
-          <p style="font-size:15px;font-weight:600;color:var(--ink);">Smluvní spolupráce</p>
-          <p style="font-size:28px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--accent);">Dohodou</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Dlouhodobě</p>
+          <p style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Smluvní spolupráce</p>
+          <p style="font-size:36px;font-weight:700;font-family:'DM Serif Display',serif;color:var(--ink);margin-bottom:12px;">Dohodou</p>
           <p class="price-card-desc">Dlouhodobá spolupráce pro firmy i jednotlivce — cena dle rozsahu a náročnosti.</p>
         </div>
 
