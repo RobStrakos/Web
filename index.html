@@ -583,12 +583,16 @@
       /* Hero mobile */
       .hero-mobile-hide { display: none !important; }
       .hero-mobile-overlay { display: block !important; }
+      .hero-badge-mobile { display: none !important; }
       #uvod > div[style*="top:72px"] {
         top: auto !important;
         bottom: 0 !important;
         padding: 0 20px 48px !important;
       }
       #uvod > div[style*="top:72px"] > div { max-width: 100% !important; }
+      #uvod .hero-fullscreen-cta, #uvod div[style*="flex-wrap:wrap"] { flex-direction: column !important; }
+      /* Odebrat mezeru pod hero */
+      section:first-of-type { padding-top: 0 !important; margin-top: 0 !important; }
       .hero-fullscreen-cta { flex-direction: column; }
       .hero-fullscreen-cta a { text-align: center; }
     }
@@ -647,7 +651,7 @@
     <div class="hero-mobile-overlay" style="display:none;position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);"></div>
 
     <!-- Badge vpravo nahoře -->
-    <div style="position:absolute;top:72px;right:32px;z-index:2;">
+    <div class="hero-badge-mobile" style="position:absolute;top:72px;right:32px;z-index:2;">
       <span class="nav-badge">Dostupný pro spolupráci</span>
     </div>
 
