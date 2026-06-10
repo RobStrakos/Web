@@ -395,10 +395,11 @@
     /* ── SECTIONS ── */
     section {
       margin-bottom: 0;
-      padding: 32px 0;
+      padding: 40px 0;
       opacity: 0;
       animation: up 0.5s ease 0.5s forwards;
     }
+    section:first-of-type { padding-top: 40px; }
     section:nth-of-type(2) { animation-delay: 0.6s; }
     section:nth-of-type(3) { animation-delay: 0.7s; }
     section:nth-of-type(4) { animation-delay: 0.8s; }
@@ -485,13 +486,13 @@
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 28px 28px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .price-card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; margin-top: 4px; }
+    .price-card-desc { font-size: 15px; color: var(--muted); line-height: 1.6; flex: 1; margin-top: 4px; }
     .card-title { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
     .card-desc { font-size: 15px; color: var(--muted); line-height: 1.65; flex: 1; }
 
@@ -500,9 +501,9 @@
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 28px 32px;
+      padding: 40px 36px;
       display: flex;
-      gap: 40px;
+      gap: 48px;
       align-items: center;
     }
 
@@ -510,7 +511,7 @@
 
     .about-text h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: 26px;
+      font-size: clamp(28px, 3.5vw, 38px);
       margin-bottom: 10px;
       line-height: 1.2;
     }
@@ -598,6 +599,7 @@
       .hero-fullscreen-cta a { text-align: center; }
     }
   </style>
+  <link rel="preload" as="image" href="https://robertstrakos.cz/photohero.JPEG" fetchpriority="high">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-71703L7H7X"></script>
@@ -641,10 +643,10 @@
     <a href="#kontakt">Kontakt</a>
   </div>
 
-  <div id="uvod" style="position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:center;">
+  <div id="uvod" style="position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:center;perspective:1000px;transform:translateZ(0);">
 
     <!-- Pozadí s zoom animací -->
-    <div style="position:absolute;inset:0;background:url('https://robertstrakos.cz/photohero.JPEG') center 15% / cover no-repeat;filter:brightness(0.80) contrast(1.05) saturate(1.1);transform:scale(1.05);animation:zoomin 8s ease forwards;will-change:transform;backface-visibility:hidden;"></div>
+    <div style="position:absolute;inset:0;background:url('https://robertstrakos.cz/photohero.JPEG') center 5% / cover no-repeat;filter:brightness(0.80) contrast(1.05) saturate(1.1);transform:scale(1.05);animation:zoomin 8s ease forwards;will-change:transform;backface-visibility:hidden;transform-origin:center;image-rendering:auto;"></div>
 
     <!-- Overlay - ztmavení levé strany kde je text -->
     <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.2) 50%, transparent 65%);"></div>
@@ -675,12 +677,6 @@
 
   <div class="page">
 
-    <!-- Scroll hint -->
-    <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,0.4);font-size:20px;animation:bounce 2s ease infinite;">↓</div>
-  </div>
-
-  <div class="page">
-
     <section id="omne">
       <p class="section-label">O mně</p>
       <div class="about-strip">
@@ -695,32 +691,29 @@
           <p style="margin-top:12px;">
             Technologie mě baví — a baví mě ještě víc, když začnou bavit i ostatní. Mám zkušenosti jak z praxe, tak ze vzdělávání — a přesně to využívám když pomáhám lidem a firmám najít cestu, která jim skutečně sedí.
           </p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;">
-            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Mgr. ICT vzdělávání</span>
-            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
-            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">IT specialista</span>
-            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
-            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">AI nadšenec</span>
-            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
-            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Apple nadšenec</span>
-            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
-            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Digitální finance</span>
-            <span style="padding:3px 6px;font-size:13px;color:var(--muted);">·</span>
-            <span style="padding:3px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);">Ostrava</span>
-          </div>
         </div>
-        <div class="about-stats">
-          <div class="stat">
-            <p class="stat-num">8+</p>
-            <p class="stat-label">let praxe</p>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:20px;flex-shrink:0;width:220px;">
+          <div style="display:flex;gap:16px;flex-wrap:nowrap;">
+            <div class="stat">
+              <p class="stat-num" style="font-size:32px;">8+</p>
+              <p class="stat-label">let praxe</p>
+            </div>
+            <div class="stat">
+              <p class="stat-num" style="font-size:32px;">9</p>
+              <p class="stat-label">oblastí služeb</p>
+            </div>
+            <div class="stat">
+              <p class="stat-num" style="font-size:32px;">Mgr.</p>
+              <p class="stat-label">IT & vzdělávání</p>
+            </div>
           </div>
-          <div class="stat">
-            <p class="stat-num">9</p>
-            <p class="stat-label">oblastí služeb</p>
-          </div>
-          <div class="stat">
-            <p class="stat-num">Mgr.</p>
-            <p class="stat-label">IT & vzdělávání</p>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <span style="font-size:14px;color:var(--muted);">▸ Mgr. ICT vzdělávání</span>
+            <span style="font-size:14px;color:var(--muted);">▸ IT specialista</span>
+            <span style="font-size:14px;color:var(--muted);">▸ AI nadšenec</span>
+            <span style="font-size:14px;color:var(--muted);">▸ Apple nadšenec</span>
+            <span style="font-size:14px;color:var(--muted);">▸ Digitální finance</span>
+            <span style="font-size:14px;color:var(--muted);">▸ Ostrava</span>
           </div>
         </div>
       </div>
@@ -731,47 +724,47 @@
       <h2 class="section-title">Služby pro firmy<br>i jednotlivce</h2>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;">
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Konzultace & IT poradenství</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Nezávislé poradenství při výběru technologií a plánování IT infrastruktury.</p>
         </div>
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Správa IT & systémů</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Instalace, konfigurace a servis HW & SW, serverů a Active Directory.</p>
         </div>
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Sítě & Smart Home</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Návrh a správa sítí, WiFi, vzdálený přístup, IoT a chytrá domácnost.</p>
         </div>
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Infrastruktura</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Cloud & zálohování</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Migrace do cloudu, Microsoft 365, Google Workspace, zálohy dat.</p>
         </div>
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Digitální nástroje</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Cloud & podnikové systémy</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Podpora ERP K2 a provozních systémů v průmyslovém prostředí.</p>
         </div>
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Digitální nástroje</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">AI & automatizace</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Zavádění AI nástrojů do praxe — ChatGPT, Copilot, školení dle AI Act.</p>
         </div>
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Digitální nástroje</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Apple & MDM</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Správa a podpora zařízení Apple — Mac, iPhone, iPad, firemní MDM.</p>
         </div>
-        <div style="padding:20px 24px;border-bottom:1px solid var(--border);">
+        <div style="padding:28px 28px;border-bottom:1px solid var(--border);">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Vzdělávání</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Vzdělávání & digitální finance</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Školení od základů IT po AI Act, kybernetickou bezpečnost a blockchain.</p>
         </div>
-        <div style="padding:20px 24px;grid-column:1/-1;">
+        <div style="padding:28px 28px;grid-column:1/-1;">
           <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Online přítomnost</p>
           <p style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;">Web, Google Business & Analytics</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.6;">Tvorba a správa webu pro živnostníky a malé firmy. Nastavení Google Business profilu a Google Analytics pro přehled o návštěvnosti.</p>
